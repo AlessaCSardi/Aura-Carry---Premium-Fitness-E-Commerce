@@ -3,196 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura Carry | Premium Fitness Systems</title>
+    <title>Carry Better | Premium Fitness Systems</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
-        .product-card:hover .product-image { transform: scale(1.05); }
-        .cart-drawer { transition: transform 0.3s ease-in-out; }
+       .mono { font-family: 'JetBrains Mono', monospace; }
+       .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); }
+       .product-card:hover.product-image { transform: scale(1.03); }
+       .cart-drawer { transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
+       .purple-glow { border-color: #a855f7; box-shadow: 0 0 20px rgba(168, 85, 247, 0.15); }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 overflow-x-hidden">
+<body class="bg-white text-gray-900 overflow-x-hidden">
 
-    <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-nav border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold tracking-tighter text-black">AURA CARRY</h1>
-            <div class="hidden md:flex space-x-8 font-medium text-sm uppercase tracking-widest">
-                <a href="#collection" class="hover:text-blue-600 transition">Collection</a>
-                <a href="#tech" class="hover:text-blue-600 transition">Tech Specs</a>
-                <a href="#" class="hover:text-blue-600 transition">LLC Royalties</a>
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <h1 class="text-xl font-black tracking-tighter text-black">CARRY<span class="text-purple-600">BETTER</span></h1>
+            <div class="hidden md:flex space-x-10 font-bold text-[10px] uppercase tracking-[0.2em] text-gray-500">
+                <a href="#collection" class="hover:text-purple-600 transition">Collection</a>
+                <a href="#story" class="hover:text-purple-600 transition">Our Story</a>
+                <a href="#reviews" class="hover:text-purple-600 transition">Reviews</a>
+                <a href="#faq" class="hover:text-purple-600 transition">FAQ</a>
+                <a href="#contact" class="hover:text-purple-600 transition">Contact</a>
             </div>
-            <button onclick="toggleCart()" class="relative p-2">
-                <i class="fa-solid fa-bag-shopping text-xl"></i>
-                <span id="cart-count" class="absolute -top-1 -right-1 bg-blue-600 text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full">0</span>
-            </button>
+            <div class="flex items-center gap-6">
+                <button onclick="toggleCart()" class="relative p-2 text-gray-700 hover:text-purple-600 transition">
+                    <i class="fa-solid fa-cart-shopping text-lg"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-purple-600 text-white text-[9px] w-4 h-4 flex items-center justify-center rounded-full font-bold">0</span>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="pt-32 pb-20 px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <span class="text-blue-600 font-bold tracking-widest text-xs uppercase">New Season Deployment</span>
-                <h2 class="text-5xl md:text-7xl font-bold mt-4 leading-tight">Engineering the Perfect Carry.</h2>
-                <p class="mt-6 text-gray-500 text-lg max-w-md">The intersection of luxury aesthetics and high-performance utility. Built for the Architect who trains as hard as they build.</p>
-                <div class="mt-10 flex space-x-4">
-                    <a href="#collection" class="bg-black text-white px-8 py-4 rounded-full font-bold hover:bg-gray-800 transition shadow-xl">Shop Now</a>
-                    <button class="border border-black px-8 py-4 rounded-full font-bold hover:bg-black hover:text-white transition">View Lookbook</button>
+    <header class="pt-40 pb-20 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <div class="inline-block px-3 py-1 bg-purple-50 border border-purple-100 rounded text-[10px] font-bold text-purple-600 uppercase tracking-widest">
+                    Spring 2026 Deployment
+                </div>
+                <h2 class="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9]">
+                    Carry <br><span class="text-purple-600 italic">Better.</span>
+                </h2>
+                <p class="text-gray-500 text-lg max-w-md font-light leading-relaxed">
+                    Designed by Business and Information Systems professionals. We bridge the gap between luxury fitness aesthetics and high-performance utility.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#collection" class="bg-black text-white px-10 py-4 rounded-xl font-bold hover:bg-purple-600 transition shadow-xl">Shop Collection</a>
+                    <a href="#story" class="border border-gray-200 px-10 py-4 rounded-xl font-bold hover:bg-gray-50 transition">The Architect's Story</a>
                 </div>
             </div>
             <div class="relative">
-                <div class="w-full h-[500px] bg-gray-200 rounded-3xl overflow-hidden shadow-2xl">
-                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=800" alt="Premium Bag" class="w-full h-full object-cover">
-                </div>
-                <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden md:block">
-                    <p class="text-xs text-gray-400 font-bold uppercase">Material Science</p>
-                    <p class="text-lg font-bold">100% Recycled Nylon</p>
+                <div class="rounded-[3rem] overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=800" class="w-full h-[550px] object-cover">
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Product Grid -->
-    <section id="collection" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h3 class="text-3xl font-bold mb-16">The Core Collection</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10" id="product-list">
-                <!-- Products will be injected by JS -->
+    <section id="collection" class="py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h3 class="text-xs font-black uppercase tracking-[0.4em] text-gray-400 mb-4">Inventory</h3>
+                <h2 class="text-4xl font-black tracking-tight">THE CORE COLLECTION</h2>
             </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12" id="product-list">
+                </div>
         </div>
     </section>
 
-    <!-- Tech Specs / Developer Proof -->
-    <section id="tech" class="py-20 bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
-            <div class="space-y-8">
-                <h3 class="text-4xl font-bold">Architected for Longevity.</h3>
-                <div class="flex items-start space-x-4">
-                    <div class="bg-blue-600 p-3 rounded-lg"><i class="fa-solid fa-microchip text-xl"></i></div>
-                    <div>
-                        <h4 class="font-bold text-xl text-white">Automated Logic</h4>
-                        <p class="text-gray-400 mt-2">Inventory syncs across global nodes in real-time using our proprietary LLM-integrated backend.</p>
-                    </div>
-                </div>
-                <div class="flex items-start space-x-4">
-                    <div class="bg-blue-600 p-3 rounded-lg"><i class="fa-solid fa-shield-halved text-xl"></i></div>
-                    <div>
-                        <h4 class="font-bold text-xl text-white">Encrypted Payments</h4>
-                        <p class="text-gray-400 mt-2">Fully integrated with Stripe APIs for PCI-compliant, one-click checkout experiences.</p>
-                    </div>
+    <section id="story" class="py-32 px-6">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+            <div class="space-y-6">
+                <h3 class="text-xs font-black uppercase tracking-[0.4em] text-purple-600">Our Story</h3>
+                <h2 class="text-4xl font-black tracking-tight">ACADEMIC PRECISION. <br>COMMERCIAL LUXURY.</h2>
+                <p class="text-gray-500 leading-relaxed">
+                    Carry Berry was founded by graduated professionals in <strong>Business Administration and Information Systems</strong>. We believe that your equipment should be as meticulously engineered as your data architecture.
+                </p>
+                <div class="p-6 border-l-4 border-purple-500 bg-purple-50/30">
+                    <p class="text-sm italic text-gray-700 font-medium">"In IS, we learn that systems fail because of friction. We built Carry Better to remove the friction from your daily grind."</p>
                 </div>
             </div>
-            <div class="bg-gray-800 p-8 rounded-3xl border border-gray-700 font-mono text-sm text-blue-400">
+            <div class="bg-gray-900 p-8 rounded-3xl border border-gray-800 font-mono text-[11px] leading-relaxed shadow-2xl">
                 <p class="text-purple-500">System Architecture</p>
-                <p>const deployment = {</p>
-                <p class="pl-4">engine: "Elevated_Ops_v2",</p>
-                <p class="pl-4">status: "Active",</p>
-                <p class="pl-4">royalties: "Enabled",</p>
-                <p class="pl-4">location: "Fort Lauderdale, FL"</p>
-                <p>};</p>
-                <p class="mt-4 text-purple-500">Inventory Protocol</p>
-                <p>function syncCart(units) {</p>
-                <p class="pl-4">return units.filter(u => u.available);</p>
-                <p>}</p>
+                <p class="text-gray-400">const deployment = {</p>
+                <p class="pl-4 text-blue-300">engine: "Carry_Core_v1.0",</p>
+                <p class="pl-4 text-blue-300">status: "Active",</p>
+                <p class="pl-4 text-blue-300">compliance: "Certified",</p>
+                <p class="pl-4 text-blue-300">origin: "Fort Lauderdale, FL"</p>
+                <p class="text-gray-400">};</p>
+                <p class="mt-6 text-purple-500">Inventory Protocol</p>
+                <p class="text-gray-400">function syncCart(units) {</p>
+                <p class="pl-4 text-gray-300">return units.filter(u => u.available);</p>
+                <p class="text-gray-400">}</p>
             </div>
         </div>
     </section>
 
-    <!-- Cart Drawer -->
-    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full md:w-96 bg-white z-[60] shadow-2xl translate-x-full cart-drawer p-8 flex flex-col">
-        <div class="flex justify-between items-center mb-8">
-            <h4 class="text-2xl font-bold">Your Bag</h4>
-            <button onclick="toggleCart()" class="text-2xl">&times;</button>
-        </div>
-        <div id="cart-items" class="flex-grow overflow-y-auto space-y-6">
-            <!-- Cart items injected by JS -->
-        </div>
-        <div class="border-t pt-6 mt-6">
-            <div class="flex justify-between text-lg font-bold">
-                <span>Total</span>
-                <span id="cart-total">$0.00</span>
+    <section id="reviews" class="py-32 bg-gray-950 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h3 class="text-xs font-black uppercase tracking-[0.4em] text-purple-500 mb-4">Social Proof</h3>
+                <h2 class="text-4xl font-black tracking-tight uppercase">Trusted by Architects</h2>
             </div>
-            <button onclick="simulateCheckout()" class="w-full bg-black text-white mt-6 py-4 rounded-full font-bold hover:bg-blue-600 transition">Checkout with Stripe</button>
-            <p class="text-[10px] text-gray-400 text-center mt-4">Payments secured by Aura Systems &copy; 2026</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-10 bg-white/5 rounded-3xl border border-white/10">
+                    <div class="flex text-purple-400 mb-4 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-sm italic leading-relaxed mb-6">"As a developer, I appreciate the compartmentalization. Everything has a place, and the nylon quality is elite."</p>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">— Sarah K., Software Engineer</p>
+                </div>
+                <div class="p-10 bg-white/5 rounded-3xl border border-purple-500/30 purple-glow">
+                    <div class="flex text-purple-400 mb-4 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-sm italic leading-relaxed mb-6">"The only gym bag that doesn't look out of place in a boardroom or a luxury gym. The systems logic behind the design is obvious."</p>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-purple-400">— Michael T., IS Consultant</p>
+                </div>
+                <div class="p-10 bg-white/5 rounded-3xl border border-white/10">
+                    <div class="flex text-purple-400 mb-4 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-sm italic leading-relaxed mb-6">"Efficient, beautiful, and durable. You can tell this was made by people who understand business systems."</p>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">— Alessa C., Founder</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-32 px-6 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16">
+                <h3 class="text-xs font-black uppercase tracking-[0.4em] text-gray-400 mb-4">Support</h3>
+                <h2 class="text-4xl font-black tracking-tight uppercase">Common Inquiries</h2>
+            </div>
+            <div class="space-y-4">
+                <details class="group border border-gray-100 rounded-2xl p-6 transition-all hover:border-purple-500">
+                    <summary class="list-none flex justify-between items-center cursor-pointer font-bold text-sm uppercase tracking-widest">
+                        What is the return policy?
+                        <span class="group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down text-gray-300"></i></span>
+                    </summary>
+                    <p class="mt-4 text-gray-500 text-sm leading-relaxed">We offer a 30-day satisfaction guarantee on all proprietary carry assets. Returns are processed through our encrypted portal.</p>
+                </details>
+                <details class="group border border-gray-100 rounded-2xl p-6 transition-all hover:border-purple-500">
+                    <summary class="list-none flex justify-between items-center cursor-pointer font-bold text-sm uppercase tracking-widest">
+                        How is shipping handled?
+                        <span class="group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down text-gray-300"></i></span>
+                    </summary>
+                    <p class="mt-4 text-gray-500 text-sm leading-relaxed">Global fulfillment nodes ensure delivery within 3-5 business days. Real-time tracking is standard for all deployments.</p>
+                </details>
+                <details class="group border border-gray-100 rounded-2xl p-6 transition-all hover:border-purple-500">
+                    <summary class="list-none flex justify-between items-center cursor-pointer font-bold text-sm uppercase tracking-widest">
+                        Is this related to STEM OPT?
+                        <span class="group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down text-gray-300"></i></span>
+                    </summary>
+                    <p class="mt-4 text-gray-500 text-sm leading-relaxed">This platform serves as a portfolio of Information Systems expertise, showcasing advanced data filtering and transaction architecture.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 px-6 bg-gray-50">
+        <div class="max-w-4xl mx-auto glass-nav p-12 rounded-[2.5rem] border border-gray-200 shadow-2xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black uppercase tracking-tighter">Initiate Contact</h2>
+                <p class="text-gray-500 text-sm mt-2">Awaiting professional parameters.</p>
+            </div>
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <input type="text" placeholder="Full Name" class="p-4 bg-white border border-gray-200 rounded-xl focus:border-purple-500 outline-none text-sm font-medium">
+                <input type="email" placeholder="Professional Email" class="p-4 bg-white border border-gray-200 rounded-xl focus:border-purple-500 outline-none text-sm font-medium">
+                <textarea placeholder="Your Message" class="md:col-span-2 p-4 bg-white border border-gray-200 rounded-xl focus:border-purple-500 outline-none text-sm font-medium" rows="4"></textarea>
+                <button type="submit" class="md:col-span-2 bg-black text-white py-5 rounded-xl font-black uppercase text-[10px] tracking-[0.3em] hover:bg-purple-600 transition-all shadow-lg shadow-purple-600/20">Send Transmission</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-20 border-t border-gray-100 text-center text-gray-400 font-bold text-[9px] uppercase tracking-[1em]">
+        Carry Better // Systems Architecture 2026
+    </footer>
+
+    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full md:w-[450px] bg-white z- shadow-2xl translate-x-full cart-drawer p-10 flex flex-col">
+        <div class="flex justify-between items-center mb-12 border-b border-gray-50 pb-6">
+            <h4 class="text-xl font-black tracking-tighter uppercase">Your Deployment</h4>
+            <button onclick="toggleCart()" class="text-gray-300 hover:text-black transition text-2xl"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="cart-items" class="flex-grow overflow-y-auto space-y-8"></div>
+        <div class="pt-10 border-t border-gray-100 space-y-6">
+            <div class="flex justify-between items-center font-black uppercase text-xs tracking-widest">
+                <span>Total Payload</span>
+                <span id="cart-total" class="text-lg text-purple-600">$0.00</span>
+            </div>
+            <button onclick="simulateCheckout()" class="w-full bg-black text-white py-5 rounded-xl font-black uppercase text-[10px] tracking-[0.3em] hover:bg-purple-600 transition-all">Checkout with Stripe</button>
+            <p class="text-[9px] text-gray-400 text-center font-bold">Payments Secured by Carry Better Vault</p>
         </div>
     </div>
 
-    <!-- Notification Toast -->
-    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-black text-white px-6 py-3 rounded-full shadow-2xl opacity-0 transition-opacity pointer-events-none z-[100]">
-        Added to bag
+    <div id="toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-black text-white px-8 py-4 rounded-xl shadow-2xl opacity-0 transition-all duration-500 pointer-events-none z- font-bold text-xs uppercase tracking-widest">
+        Asset Added
     </div>
 
     <script>
-        const products = [
-            { id: 1, name: "Midnight Duffle", price: 185, category: "Utility", img: "https://images.unsplash.com/photo-1544816153-12ad5d714304?auto=format&fit=crop&q=80&w=400" },
-            { id: 2, name: "Quartz Tote", price: 145, category: "Style", img: "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=400" },
-            { id: 3, name: "Neural Backpack", price: 210, category: "Tech", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=400" },
-            { id: 4, name: "Slate Crossbody", price: 95, category: "Essential", img: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=400" },
-            { id: 5, name: "Titan Gym XL", price: 245, category: "Elite", img: "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&q=80&w=400" },
-            { id: 6, name: "Rose Gym Bag", price: 165, category: "Luxe", img: "https://images.unsplash.com/photo-1622560480644-d28b94057e58?auto=format&fit=crop&q=80&w=400" }
-        ];
+        const products =;
 
-        let cart = [];
+        let cart =;
 
         function renderProducts() {
             const list = document.getElementById('product-list');
             list.innerHTML = products.map(p => `
-                <div class="product-card group text-left cursor-pointer">
-                    <div class="relative overflow-hidden rounded-2xl aspect-square bg-gray-100">
-                        <img src="${p.img}" class="product-image w-full h-full object-cover transition-transform duration-500">
-                        <button onclick="addToCart(${p.id})" class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition translate-y-2 group-hover:translate-y-0">
+                <div class="product-card group text-left">
+                    <div class="relative overflow-hidden rounded-[2rem] aspect-[4/5] bg-gray-100 shadow-sm transition-all group-hover:shadow-xl">
+                        <img src="${p.img}" class="product-image w-full h-full object-cover transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+                        <button onclick="addToCart(${p.id})" class="absolute bottom-6 right-6 bg-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-xl opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 hover:bg-purple-600 hover:text-white">
                             <i class="fa-solid fa-plus"></i>
                         </button>
                     </div>
-                    <div class="mt-4 flex justify-between items-start">
+                    <div class="mt-6 flex justify-between items-start px-2">
                         <div>
-                            <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">${p.category}</p>
-                            <h4 class="text-lg font-bold">${p.name}</h4>
+                            <p class="text-[9px] uppercase tracking-[0.2em] text-purple-500 font-black mb-1">${p.category}</p>
+                            <h4 class="text-sm font-bold tracking-tight uppercase">${p.name}</h4>
                         </div>
-                        <p class="font-bold text-lg">$${p.price}</p>
+                        <p class="font-black text-sm">$${p.price}</p>
                     </div>
                 </div>
             `).join('');
         }
 
         function toggleCart() {
-            const drawer = document.getElementById('cart-drawer');
-            drawer.classList.toggle('translate-x-full');
+            document.getElementById('cart-drawer').classList.toggle('translate-x-full');
         }
 
         function addToCart(id) {
             const product = products.find(p => p.id === id);
             cart.push(product);
             updateCart();
-            showToast(`Added ${product.name} to bag`);
+            showToast(`Provisioned: ${product.name}`);
         }
 
         function updateCart() {
             const itemsContainer = document.getElementById('cart-items');
             const totalElement = document.getElementById('cart-total');
             const countElement = document.getElementById('cart-count');
-
             countElement.innerText = cart.length;
             
             if (cart.length === 0) {
-                itemsContainer.innerHTML = '<p class="text-gray-400 text-center py-10">Your bag is empty.</p>';
+                itemsContainer.innerHTML = '<div class="h-full flex items-center justify-center text-[10px] font-bold uppercase tracking-widest text-gray-300">Bag Empty</div>';
             } else {
                 itemsContainer.innerHTML = cart.map((p, index) => `
-                    <div class="flex items-center space-x-4 animate-fadeIn">
-                        <img src="${p.img}" class="w-16 h-16 object-cover rounded-lg">
+                    <div class="flex items-center space-x-6">
+                        <img src="${p.img}" class="w-20 h-20 object-cover rounded-lg">
                         <div class="flex-grow">
-                            <h5 class="font-bold text-sm">${p.name}</h5>
-                            <p class="text-xs text-gray-500">$${p.price}</p>
+                            <h5 class="font-bold text-[11px] uppercase tracking-widest">${p.name}</h5>
+                            <p class="text-xs text-purple-600 font-black mt-1">$${p.price}</p>
                         </div>
                         <button onclick="removeFromCart(${index})" class="text-gray-300 hover:text-red-500"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
                 `).join('');
             }
-
             const total = cart.reduce((sum, p) => sum + p.price, 0);
             totalElement.innerText = `$${total.toFixed(2)}`;
         }
@@ -206,25 +269,25 @@
             const toast = document.getElementById('toast');
             toast.innerText = msg;
             toast.style.opacity = '1';
-            setTimeout(() => toast.style.opacity = '0', 2000);
+            setTimeout(() => toast.style.opacity = '0', 2500);
         }
 
         function simulateCheckout() {
-            if(cart.length === 0) return showToast("Add items first");
+            if(cart.length === 0) return showToast("Cart Empty");
             const btn = event.target;
-            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Processing...';
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Processing Secure Link...';
             setTimeout(() => {
-                btn.innerHTML = 'Success! <i class="fa-solid fa-check"></i>';
+                btn.innerHTML = 'Success! System Ready.';
                 btn.classList.replace('bg-black', 'bg-green-600');
-                showToast("Payment Successful! Autonomy Initialized.");
+                showToast("System Provisioned Successfully.");
                 setTimeout(() => {
-                    cart = [];
+                    cart =;
                     updateCart();
                     toggleCart();
                     btn.innerHTML = 'Checkout with Stripe';
                     btn.classList.replace('bg-green-600', 'bg-black');
                 }, 2000);
-            }, 1500);
+            }, 1800);
         }
 
         window.onload = renderProducts;
