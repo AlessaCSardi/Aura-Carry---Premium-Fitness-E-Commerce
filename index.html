@@ -446,5 +446,140 @@
             updateCart();
         };
     </script>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-tighter text-black cursor-pointer" onclick="showPage('home')">AURA CARRY</h1>
+            <div class="hidden md:flex space-x-8 font-medium text-sm uppercase tracking-widest">
+                <a href="javascript:void(0)" onclick="showPage('home')" class="nav-link home-link">Home</a>
+                <a href="javascript:void(0)" onclick="showPage('tech')" class="nav-link tech-link">The Tech</a>
+                <a href="javascript:void(0)" onclick="showPage('contact')" class="nav-link contact-link">Contact</a>
+            </div>
+            <div class="w-10"></div>
+        </div>
+    </nav>
+
+    <!-- Page: HOME -->
+    <main id="home-page" class="page-section active pt-32">
+        <header class="pb-20 px-6">
+            <div class="max-w-7xl mx-auto text-center">
+                <span class="text-purple-600 font-bold tracking-widest text-xs uppercase">Fort Lauderdale Operations</span>
+                <h2 class="text-5xl md:text-7xl font-bold mt-4 leading-tight">Architected for Longevity.</h2>
+                <p class="mt-6 text-gray-500 text-lg max-w-2xl mx-auto">High-end e-commerce integration built for performance. Proving full-stack capabilities through Neural Logic and Consumer Systems.</p>
+                <button onclick="showPage('contact')" class="mt-10 bg-black text-white px-10 py-4 rounded-full font-bold hover:bg-purple-600 transition shadow-xl">Initiate Deployment</button>
+            </div>
+        </header>
+    </main>
+
+    <!-- Page: TECH SPECS -->
+    <section id="tech-page" class="page-section pt-32 py-20">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <div>
+                    <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-6">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Automated Logic</h3>
+                    <p class="text-gray-500">Inventory syncs across global nodes in real-time using our proprietary LLM-integrated backend.</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white mb-6">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Encrypted Payments</h3>
+                    <p class="text-gray-500">Fully integrated with Stripe APIs for PCI-compliant, one-click checkout experiences.</p>
+                </div>
+            </div>
+
+            <div class="code-block text-sm leading-relaxed">
+                <p class="code-comment">// System Architecture</p>
+                <p><span class="code-keyword">const</span> deployment = {</p>
+                <p class="pl-6">engine: <span class="code-str">"Elevated_Ops_v2"</span>,</p>
+                <p class="pl-6">status: <span class="code-str">"Active"</span>,</p>
+                <p class="pl-6">royalties: <span class="code-str">"Enabled"</span>,</p>
+                <p class="pl-6">location: <span class="code-str">"Fort Lauderdale, FL"</span></p>
+                <p>};</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page: CONTACT -->
+    <section id="contact-page" class="page-section pt-32 py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto glass-nav p-12 rounded-[2.5rem] border border-gray-200 shadow-2xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black uppercase tracking-tighter">Initiate Contact</h2>
+                <p class="text-gray-500 text-sm mt-2">Awaiting professional parameters. Transmission via Service: service_9zn9owv</p>
+            </div>
+            
+            <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <input type="text" name="firstName" id="firstName" placeholder="First Name" required class="p-4 bg-white border border-gray-200 rounded-xl focus:border-purple-500 outline-none text-sm font-medium transition-all">
+                <input type="text" name="lastName" id="lastName" placeholder="Last Name" required class="p-4 bg-white border border-gray-200 rounded-xl focus:border-purple-500 outline-none text-sm font-medium transition-all">
+                <input type="email" name="email" id="email" placeholder="Professional Email" required class="p-4 bg-white border border-gray-200 rounded-xl focus:border-purple-500 outline-none text-sm font-medium transition-all">
+                <input type="tel" name="phone" id="phone" placeholder="Contact Number" class="p-4 bg-white border border-gray-200 rounded-xl focus:border-purple-500 outline-none text-sm font-medium transition-all">
+                <textarea name="message" id="message" placeholder="Project Parameters / Inquiry Details" required class="md:col-span-2 p-4 bg-white border border-gray-200 rounded-xl focus:border-purple-500 outline-none text-sm font-medium transition-all" rows="4"></textarea>
+                <button type="submit" id="submit-btn" class="md:col-span-2 bg-black text-white py-5 rounded-xl font-black uppercase text-[10px] tracking-[0.3em] hover:bg-purple-600 transition-all shadow-lg shadow-purple-600/20">
+                    Send Transmission
+                </button>
+            </form>
+            <div id="status-msg" class="mt-6 text-center text-sm font-bold hidden"></div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize with your Public Key from EmailJS Account Tab
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY"); // IMPORTANT: Replace with your actual Public Key
+        })();
+
+        async function handleSubmission(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            const status = document.getElementById('status-msg');
+            
+            btn.innerHTML = 'TRANSMITTING...';
+            btn.disabled = true;
+
+            const templateParams = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value,
+                property: "Aura Carry System Inquiry"
+            };
+
+            try {
+                // Service ID from your latest screenshot: service_9zn9owv
+                // IMPORTANT: Replace 'YOUR_TEMPLATE_ID' with the ID of the template you create in EmailJS
+                await emailjs.send('service_9zn9owv', 'YOUR_TEMPLATE_ID', templateParams);
+                
+                status.innerText = "TRANSMISSION SUCCESSFUL. DATA SYNCED TO HQ.";
+                status.className = "mt-6 text-center text-sm font-bold text-purple-600 block";
+                btn.innerHTML = 'TRANSMITTED';
+                document.getElementById('contact-form').reset();
+            } catch (error) {
+                console.error('EmailJS Error:', error);
+                status.innerText = "PROTOCOL ERROR. ENSURE GOOGLE PERMISSIONS ARE GRANTED.";
+                status.className = "mt-6 text-center text-sm font-bold text-red-600 block";
+                btn.innerHTML = 'RETRY TRANSMISSION';
+                btn.disabled = false;
+            }
+        }
+
+        document.getElementById('contact-form').addEventListener('submit', handleSubmission);
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            document.getElementById(`${pageId}-page`).classList.add('active');
+            const link = document.querySelector(`.${pageId}-link`);
+            if(link) link.classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        window.onload = () => showPage('home');
+    </script>
+    
 </body>
 </html>
