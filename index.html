@@ -91,24 +91,117 @@
         </div>
     </header>
 
-    <section id="collection" class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-                <div>
-                    <h3 class="text-xs font-black uppercase tracking-[0.5em] text-purple-600 mb-4">Precision Selection</h3>
-                    <h2 class="text-5xl font-black tracking-tight uppercase">Current Release</h2>
+<section id="collection" class="py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+            <div>
+                <h3 class="text-xs font-black uppercase tracking-[0.5em] text-purple-600 mb-4">Inventory Control</h3>
+                <h2 class="text-5xl font-black tracking-tight uppercase">Core Collection</h2>
+            </div>
+            <div class="flex gap-4">
+                <button onclick="filterProducts('all')" id="filter-all" class="px-8 py-3 rounded-full border border-black text-[10px] font-bold uppercase tracking-widest bg-black text-white transition-all">All Assets</button>
+                <button onclick="filterProducts('Limited Release')" id="filter-limited" class="px-8 py-3 rounded-full border border-gray-100 text-[10px] font-bold uppercase tracking-widest hover:border-purple-600 transition-all">Limited Release</button>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24" id="product-list">
+            </div>
+    </div>
+</section>
+
+<script>
+    // Updated Product Database with missing images and Limited Release tags
+    const products = [
+        {
+            id: 1,
+            name: "The Architect One",
+            category: "Best Seller",
+            price: 185.00,
+            img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=600",
+            description: "Our signature 15-compartment master bag. Features an antimicrobial shoe garage and insulated meal prep zone."
+        },
+        {
+            id: 2,
+            name: "Aura Smart Pro",
+            category: "Limited Release",
+            price: 145.00,
+            img: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&q=80&w=600",
+            description: "Dynamic internal dividers for the high-intensity professional. Includes a rapid-access tech station."
+        },
+        {
+            id: 5,
+            name: "Node Cross-Body",
+            category: "Peripheral Carry",
+            price: 75.00,
+            img: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=600", // Fixed missing image
+            description: "Quick-release magnetic buckle with an expandable core for gym-to-office transitions."
+        },
+        {
+            id: 6,
+            name: "Legacy Endure",
+            category: "Limited Release",
+            price: 210.00,
+            img: "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&q=80&w=600",
+            description: "Reinforced Carbon-weave vegan leather. Tear-proof, waterproof, and designed for trans-continental travel."
+        }
+    ];
+
+    let currentFilter = 'all';
+
+    function filterProducts(category) {
+        currentFilter = category;
+        
+        // Update Button UI
+        document.querySelectorAll('[id^="filter-"]').forEach(btn => {
+            btn.classList.remove('bg-black', 'text-white', 'border-black');
+            btn.classList.add('border-gray-100');
+        });
+        const activeBtn = category === 'all' ? document.getElementById('filter-all') : document.getElementById('filter-limited');
+        activeBtn.classList.add('bg-black', 'text-white', 'border-black');
+
+        renderProducts();
+    }
+
+    function renderProducts() {
+        const list = document.getElementById('product-list');
+        const filtered = currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter);
+        
+        list.innerHTML = filtered.map(p => `
+            <div class="product-card group cursor-pointer animate-fadeIn" onclick="openProductModal(${p.id})">
+                <div class="relative overflow-hidden rounded-[3rem] aspect-[4/5] bg-gray-50 border-2 border-transparent group-hover:border-purple-500 transition-all">
+                    <img src="${p.img}" class="product-image w-full h-full object-cover">
+                    ${p.category === 'Limited Release' ? '<span class="absolute top-6 left-6 bg-black text-white text-[8px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Limited</span>' : ''}
                 </div>
-                <div class="flex gap-4">
-                    <button class="px-8 py-4 rounded-2xl bg-purple-600 text-white text-[10px] font-black uppercase tracking-widest shadow-xl shadow-purple-100" onclick="openIdeaModal()">
-                        <i class="fa-solid fa-lightbulb mr-2"></i> Custom Request
-                    </button>
+                <div class="mt-8 flex justify-between items-start px-4">
+                    <div class="space-y-1">
+                        <p class="text-[10px] uppercase tracking-[0.3em] text-purple-600 font-black">${p.category}</p>
+                        <h4 class="text-lg font-black tracking-tight uppercase text-black group-hover:text-purple-600 transition-colors">${p.name}</h4>
+                        <p class="text-xs text-gray-400 font-medium">Click to configure colors</p>
+                    </div>
+                    <p class="font-black text-lg text-black">$${p.price.toFixed(2)}</p>
                 </div>
             </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24" id="product-list">
-                </div>
-        </div>
-    </section>
+        `).join('');
+    }
+
+    // Color Swapping Logic for the Modal
+    function selectColor(colorName) {
+        const modalImg = document.getElementById('modal-img');
+        
+        // Apply CSS filters to simulate color changes on the static image
+        const colorMap = {
+            'Pink': 'hue-rotate(300deg) brightness(1.2)',
+            'Purple': 'hue-rotate(250deg) saturate(1.5)',
+            'Black': 'grayscale(1) brightness(0.5)',
+            'Red': 'hue-rotate(0deg) saturate(2)',
+            'Dark Green': 'hue-rotate(120deg) brightness(0.7)',
+            'Original': 'none'
+        };
+
+        modalImg.style.filter = colorMap[colorName] || 'none';
+        showToast(`Configuration Set: ${colorName}`);
+    }
+</script>
 
     <section id="story" class="py-32 px-6 bg-gray-50">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-24 items-center">
