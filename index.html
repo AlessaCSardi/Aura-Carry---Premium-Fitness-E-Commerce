@@ -8,34 +8,23 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
-        
         :root { --brand-purple: #a855f7; }
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .mono { font-family: 'JetBrains Mono', monospace; }
-        
-        .glass-nav { 
-            background: rgba(255, 255, 255, 0.85); 
-            backdrop-filter: blur(15px); 
-            -webkit-backdrop-filter: blur(15px);
-        }
-
-        .product-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .glass-nav { background: rgba(255,255,255,0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
+        .product-card { transition: all 0.4s cubic-bezier(0.4,0,0.2,1); }
         .product-card:hover { transform: translateY(-8px); border-color: var(--brand-purple); }
-        .product-image { transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .product-image { transition: transform 0.8s cubic-bezier(0.4,0,0.2,1); }
         .product-card:hover .product-image { transform: scale(1.08); }
-        
-        .cart-drawer { transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); }
-        
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .cart-drawer { transition: transform 0.5s cubic-bezier(0.165,0.84,0.44,1); }
+        @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
         .animate-fadeIn { animation: fadeIn 0.6s ease-out forwards; }
-        
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #e2e2e2; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #a855f7; }
-
-        .modal { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
-        .modal.active { display: flex; align-items: center; justify-content: center; }
+        .modal { display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.8); backdrop-filter:blur(5px); }
+        .modal.active { display:flex; align-items:center; justify-content:center; }
     </style>
 </head>
 <body class="bg-white text-gray-900 overflow-x-hidden">
@@ -43,14 +32,12 @@
     <nav class="fixed w-full z-50 glass-nav border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <h1 class="text-2xl font-black tracking-tighter text-black uppercase">Smart<span class="text-purple-600">Bags</span></h1>
-            
             <div class="hidden md:flex space-x-10 font-bold text-[11px] uppercase tracking-[0.2em] text-gray-400">
                 <a href="#collection" class="nav-link hover:text-purple-600 transition">Collection</a>
                 <a href="#story" class="nav-link hover:text-purple-600 transition">The Logic</a>
                 <a href="#reviews" class="nav-link hover:text-purple-600 transition">Community</a>
                 <a href="#contact" class="nav-link hover:text-purple-600 transition">Inquiries</a>
             </div>
-
             <div class="flex items-center gap-6">
                 <button onclick="toggleCart()" class="relative p-2 text-gray-900 hover:text-purple-600 transition">
                     <i class="fa-solid fa-cart-shopping text-xl"></i>
@@ -70,16 +57,10 @@
                     </span>
                     100% Vegan Materials
                 </div>
-                <h2 class="text-7xl md:text-9xl font-black tracking-tighter leading-[0.85] text-black uppercase">
-                    All-In-One <br><span class="text-purple-600 italic">Carry.</span>
-                </h2>
-                <p class="text-gray-500 text-xl max-w-md font-light leading-relaxed">
-                    Stop carrying three bags. Our modular compartments consolidate your gym, tech, and travel life into a single, high-performance asset.
-                </p>
+                <h2 class="text-7xl md:text-9xl font-black tracking-tighter leading-[0.85] text-black uppercase">All-In-One <br><span class="text-purple-600 italic">Carry.</span></h2>
+                <p class="text-gray-500 text-xl max-w-md font-light leading-relaxed">Stop carrying three bags. Our modular compartments consolidate your gym, tech, and travel life into a single, high-performance asset.</p>
                 <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#collection" class="bg-black text-white px-12 py-5 rounded-2xl font-bold hover:bg-purple-600 transition shadow-2xl shadow-purple-200 flex items-center gap-3">
-                        View Catalog <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </a>
+                    <a href="#collection" class="bg-black text-white px-12 py-5 rounded-2xl font-bold hover:bg-purple-600 transition shadow-2xl shadow-purple-200 flex items-center gap-3">View Catalog <i class="fa-solid fa-arrow-right text-sm"></i></a>
                 </div>
             </div>
             <div class="relative group">
@@ -91,122 +72,27 @@
         </div>
     </header>
 
-<section id="collection" class="py-32 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-            <div>
-                <h3 class="text-xs font-black uppercase tracking-[0.5em] text-purple-600 mb-4">Inventory Control</h3>
-                <h2 class="text-5xl font-black tracking-tight uppercase">Core Collection</h2>
+    <section id="collection" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+                <div>
+                    <h3 class="text-xs font-black uppercase tracking-[0.5em] text-purple-600 mb-4">Inventory Control</h3>
+                    <h2 class="text-5xl font-black tracking-tight uppercase">Core Collection</h2>
+                </div>
+                <div class="flex gap-4">
+                    <button onclick="filterProducts('all')" id="filter-all" class="px-8 py-3 rounded-full border border-black text-[10px] font-bold uppercase tracking-widest bg-black text-white transition-all">All Assets</button>
+                    <button onclick="filterProducts('Limited Release')" id="filter-limited" class="px-8 py-3 rounded-full border border-gray-100 text-[10px] font-bold uppercase tracking-widest hover:border-purple-600 transition-all">Limited Release</button>
+                </div>
             </div>
-            <div class="flex gap-4">
-                <button onclick="filterProducts('all')" id="filter-all" class="px-8 py-3 rounded-full border border-black text-[10px] font-bold uppercase tracking-widest bg-black text-white transition-all">All Assets</button>
-                <button onclick="filterProducts('Limited Release')" id="filter-limited" class="px-8 py-3 rounded-full border border-gray-100 text-[10px] font-bold uppercase tracking-widest hover:border-purple-600 transition-all">Limited Release</button>
-            </div>
+            <!-- All 6 products render by default on load; filter buttons narrow the view -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24" id="product-list"></div>
         </div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24" id="product-list">
-            </div>
-    </div>
-</section>
-
-<script>
-    // Updated Product Database with missing images and Limited Release tags
-    const products = [
-        {
-            id: 1,
-            name: "The Architect One",
-            category: "Best Seller",
-            price: 185.00,
-            img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=600",
-            description: "Our signature 15-compartment master bag. Features an antimicrobial shoe garage and insulated meal prep zone."
-        },
-        {
-            id: 2,
-            name: "Aura Smart Pro",
-            category: "Limited Release",
-            price: 145.00,
-            img: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&q=80&w=600",
-            description: "Dynamic internal dividers for the high-intensity professional. Includes a rapid-access tech station."
-        },
-        {
-            id: 5,
-            name: "Node Cross-Body",
-            category: "Peripheral Carry",
-            price: 75.00,
-            img: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=600", // Fixed missing image
-            description: "Quick-release magnetic buckle with an expandable core for gym-to-office transitions."
-        },
-        {
-            id: 6,
-            name: "Legacy Endure",
-            category: "Limited Release",
-            price: 210.00,
-            img: "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&q=80&w=600",
-            description: "Reinforced Carbon-weave vegan leather. Tear-proof, waterproof, and designed for trans-continental travel."
-        }
-    ];
-
-    let currentFilter = 'all';
-
-    function filterProducts(category) {
-        currentFilter = category;
-        
-        // Update Button UI
-        document.querySelectorAll('[id^="filter-"]').forEach(btn => {
-            btn.classList.remove('bg-black', 'text-white', 'border-black');
-            btn.classList.add('border-gray-100');
-        });
-        const activeBtn = category === 'all' ? document.getElementById('filter-all') : document.getElementById('filter-limited');
-        activeBtn.classList.add('bg-black', 'text-white', 'border-black');
-
-        renderProducts();
-    }
-
-    function renderProducts() {
-        const list = document.getElementById('product-list');
-        const filtered = currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter);
-        
-        list.innerHTML = filtered.map(p => `
-            <div class="product-card group cursor-pointer animate-fadeIn" onclick="openProductModal(${p.id})">
-                <div class="relative overflow-hidden rounded-[3rem] aspect-[4/5] bg-gray-50 border-2 border-transparent group-hover:border-purple-500 transition-all">
-                    <img src="${p.img}" class="product-image w-full h-full object-cover">
-                    ${p.category === 'Limited Release' ? '<span class="absolute top-6 left-6 bg-black text-white text-[8px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Limited</span>' : ''}
-                </div>
-                <div class="mt-8 flex justify-between items-start px-4">
-                    <div class="space-y-1">
-                        <p class="text-[10px] uppercase tracking-[0.3em] text-purple-600 font-black">${p.category}</p>
-                        <h4 class="text-lg font-black tracking-tight uppercase text-black group-hover:text-purple-600 transition-colors">${p.name}</h4>
-                        <p class="text-xs text-gray-400 font-medium">Click to configure colors</p>
-                    </div>
-                    <p class="font-black text-lg text-black">$${p.price.toFixed(2)}</p>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    // Color Swapping Logic for the Modal
-    function selectColor(colorName) {
-        const modalImg = document.getElementById('modal-img');
-        
-        // Apply CSS filters to simulate color changes on the static image
-        const colorMap = {
-            'Pink': 'hue-rotate(300deg) brightness(1.2)',
-            'Purple': 'hue-rotate(250deg) saturate(1.5)',
-            'Black': 'grayscale(1) brightness(0.5)',
-            'Red': 'hue-rotate(0deg) saturate(2)',
-            'Dark Green': 'hue-rotate(120deg) brightness(0.7)',
-            'Original': 'none'
-        };
-
-        modalImg.style.filter = colorMap[colorName] || 'none';
-        showToast(`Configuration Set: ${colorName}`);
-    }
-</script>
+    </section>
 
     <section id="story" class="py-32 px-6 bg-gray-50">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-24 items-center">
             <div class="order-2 md:order-1">
-                <div class="bg-gray-900 p-10 rounded-[3rem] border border-gray-800 font-mono text-[12px] leading-relaxed shadow-2xl relative overflow-hidden group">
+                <div class="bg-gray-900 p-10 rounded-[3rem] border border-gray-800 font-mono text-[12px] leading-relaxed shadow-2xl">
                     <p class="text-purple-500 font-bold mb-4">Functional Logic</p>
                     <p class="text-gray-400">const lifestyle_solution = {</p>
                     <p class="pl-6 text-blue-300">gym_gear: true,</p>
@@ -221,9 +107,7 @@
             <div class="space-y-8 order-1 md:order-2">
                 <h3 class="text-xs font-black uppercase tracking-[0.4em] text-purple-600">The Problem Solved</h3>
                 <h2 class="text-5xl font-black tracking-tight leading-none uppercase">Consolidated <br>Efficiency.</h2>
-                <p class="text-gray-500 text-lg leading-relaxed">
-                    We saw professionals carrying a gym duffel in one hand and a laptop brief in the other. We fixed it. Our Smart Bags utilize <strong>high-intensity organizational logic</strong> to provide dedicated zones for shoes, tech, and nutrition—all in one sleek silhouette.
-                </p>
+                <p class="text-gray-500 text-lg leading-relaxed">We saw professionals carrying a gym duffel in one hand and a laptop brief in the other. We fixed it. Our Smart Bags utilize <strong>high-intensity organizational logic</strong> to provide dedicated zones for shoes, tech, and nutrition — all in one sleek silhouette.</p>
             </div>
         </div>
     </section>
@@ -254,6 +138,7 @@
         </div>
     </section>
 
+    <!-- Product Modal -->
     <div id="product-modal" class="modal px-6" onclick="closeProductModal()">
         <div class="bg-white max-w-4xl w-full rounded-[3rem] overflow-hidden flex flex-col md:flex-row" onclick="event.stopPropagation()">
             <div class="md:w-1/2 bg-gray-100">
@@ -263,7 +148,6 @@
                 <div id="modal-badge" class="inline-block bg-purple-100 text-purple-600 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest"></div>
                 <h2 id="modal-name" class="text-4xl font-black uppercase tracking-tighter"></h2>
                 <p id="modal-desc" class="text-gray-500 leading-relaxed"></p>
-                
                 <div class="space-y-4">
                     <p class="text-[10px] font-black uppercase tracking-widest text-gray-400">Select Configuration</p>
                     <div class="flex gap-3">
@@ -274,30 +158,10 @@
                         <button onclick="selectColor('Dark Green')" class="w-8 h-8 rounded-full bg-emerald-900 border-2 border-transparent hover:border-black transition"></button>
                     </div>
                 </div>
-
                 <div class="pt-8">
-                    <button id="modal-add-btn" class="w-full bg-black text-white py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-purple-600 transition shadow-2xl shadow-purple-100">
-                        Add to Deployment
-                    </button>
+                    <button id="modal-add-btn" class="w-full bg-black text-white py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-purple-600 transition shadow-2xl shadow-purple-100">Add to Deployment</button>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div id="idea-modal" class="modal px-6" onclick="closeIdeaModal()">
-        <div class="bg-white max-w-lg w-full rounded-[3rem] p-12 space-y-8" onclick="event.stopPropagation()">
-            <div class="text-center">
-                <h2 class="text-3xl font-black uppercase tracking-tighter">Custom Lab Request</h2>
-                <p class="text-gray-500 text-sm mt-2">Have a compartment idea? Submit your vision below.</p>
-            </div>
-            <form class="space-y-4">
-                <textarea placeholder="Describe your dream bag layout..." class="w-full p-6 bg-gray-50 rounded-2xl border border-gray-100 focus:border-purple-500 outline-none h-32"></textarea>
-                <div class="border-2 border-dashed border-gray-200 rounded-2xl p-8 text-center text-xs text-gray-400 font-bold uppercase tracking-widest cursor-pointer hover:bg-gray-50 transition">
-                    <i class="fa-solid fa-cloud-arrow-up text-2xl mb-2 block"></i>
-                    Upload Sketches or Reference
-                </div>
-                <button type="button" onclick="closeIdeaModal()" class="w-full bg-purple-600 text-white py-5 rounded-2xl font-black uppercase text-[10px] tracking-widest">Submit Proposal</button>
-            </form>
         </div>
     </div>
 
@@ -326,6 +190,7 @@
         Smart Bags // High Performance Modular Carry // Fort Lauderdale
     </footer>
 
+    <!-- Cart Drawer -->
     <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full md:w-[480px] bg-white z-[100] shadow-2xl translate-x-full cart-drawer p-12 flex flex-col border-l border-gray-50">
         <div class="flex justify-between items-center mb-16 border-b border-gray-50 pb-8">
             <h4 class="text-2xl font-black tracking-tighter uppercase text-black">Active Deployment</h4>
@@ -345,64 +210,44 @@
 
     <script>
         const products = [
-            {
-                id: 1,
-                name: "The Architect One",
-                category: "Best Seller",
-                price: 185.00,
-                img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=600",
-                description: "Our signature 15-compartment master bag. Features an antimicrobial shoe garage, insulated 2L meal prep zone, and a shock-proof 16\" laptop vault. The only bag you'll ever need."
-            },
-            {
-                id: 2,
-                name: "Aura Smart Pro",
-                category: "Fan Favorite",
-                price: 145.00,
-                img: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&q=80&w=600",
-                description: "Dynamic internal dividers for the high-intensity professional. Includes a rapid-access tech station and hidden passport pocket."
-            },
-            {
-                id: 3,
-                name: "The Core Mini",
-                category: "Compact Asset",
-                price: 95.00,
-                img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600",
-                description: "Streamlined for the minimal commute. 10 smart compartments optimized for tablets, hydration, and gym essentials."
-            },
-            {
-                id: 4,
-                name: "IS Thermal Brief",
-                category: "Smart Tech Carry",
-                price: 125.00,
-                img: "https://images.unsplash.com/photo-1553531384-397c80973a0b?auto=format&fit=crop&q=80&w=600",
-                description: "Military-grade vegan textile brief with a dedicated heating/cooling pouch for electronics or lunch integrity."
-            },
-            {
-                id: 5,
-                name: "Node Cross-Body",
-                category: "Peripheral Carry",
-                price: 75.00,
-                img: "https://images.unsplash.com/photo-1581605405669-fec8142c354a?auto=format&fit=crop&q=80&w=600",
-                description: "Quick-release magnetic buckle with an expandable core for gym-to-office transitions."
-            },
-            {
-                id: 6,
-                name: "Legacy Endure",
-                category: "Ultra-Resistant",
-                price: 210.00,
-                img: "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&q=80&w=600",
-                description: "Crafted from reinforced Carbon-weave vegan leather. Tear-proof, waterproof, and designed for trans-continental travel."
-            }
+            { id: 1, name: "The Architect One",  category: "Best Seller",      price: 185.00, img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=600",  description: "Our signature 15-compartment master bag. Features an antimicrobial shoe garage, insulated 2L meal prep zone, and a shock-proof 16\" laptop vault. The only bag you'll ever need." },
+            { id: 2, name: "Aura Smart Pro",      category: "Limited Release",  price: 145.00, img: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&q=80&w=600",  description: "Dynamic internal dividers for the high-intensity professional. Includes a rapid-access tech station and hidden passport pocket." },
+            { id: 3, name: "The Core Mini",        category: "Compact Asset",   price: 95.00,  img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600",  description: "Streamlined for the minimal commute. 10 smart compartments optimized for tablets, hydration, and gym essentials." },
+            { id: 4, name: "IS Thermal Brief",     category: "Smart Tech Carry", price: 125.00, img: "https://images.unsplash.com/photo-1553531384-397c80973a0b?auto=format&fit=crop&q=80&w=600",  description: "Military-grade vegan textile brief with a dedicated heating/cooling pouch for electronics or lunch integrity." },
+            { id: 5, name: "Node Cross-Body",      category: "Peripheral Carry", price: 75.00,  img: "https://images.unsplash.com/photo-1581605405669-fec8142c354a?auto=format&fit=crop&q=80&w=600",  description: "Quick-release magnetic buckle with an expandable core for gym-to-office transitions." },
+            { id: 6, name: "Legacy Endure",        category: "Limited Release",  price: 210.00, img: "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&q=80&w=600",  description: "Crafted from reinforced Carbon-weave vegan leather. Tear-proof, waterproof, and designed for trans-continental travel." }
         ];
 
         let cart = [];
+        // Start with 'all' so the full collection is visible immediately on load
+        let currentFilter = 'all';
+
+        function filterProducts(category) {
+            currentFilter = category;
+            // Reset button styles
+            document.querySelectorAll('[id^="filter-"]').forEach(btn => {
+                btn.classList.remove('bg-black', 'text-white', 'border-black');
+                btn.classList.add('border-gray-100');
+            });
+            // Activate selected button
+            const activeBtn = category === 'all'
+                ? document.getElementById('filter-all')
+                : document.getElementById('filter-limited');
+            activeBtn.classList.add('bg-black', 'text-white', 'border-black');
+            renderProducts();
+        }
 
         function renderProducts() {
             const list = document.getElementById('product-list');
-            list.innerHTML = products.map(p => `
+            const filtered = currentFilter === 'all'
+                ? products
+                : products.filter(p => p.category === currentFilter);
+
+            list.innerHTML = filtered.map(p => `
                 <div class="product-card group cursor-pointer animate-fadeIn border-2 border-transparent p-4 rounded-[3.5rem]" onclick="openProductModal(${p.id})">
                     <div class="relative overflow-hidden rounded-[3rem] aspect-[4/5] bg-gray-50">
                         <img src="${p.img}" class="product-image w-full h-full object-cover">
+                        ${p.category === 'Limited Release' ? '<span class="absolute top-6 left-6 bg-black text-white text-[8px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Limited</span>' : ''}
                         <div class="absolute inset-0 bg-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
                     <div class="mt-8 flex justify-between items-start px-4">
@@ -419,7 +264,9 @@
 
         function openProductModal(id) {
             const p = products.find(prod => prod.id === id);
-            document.getElementById('modal-img').src = p.img;
+            const img = document.getElementById('modal-img');
+            img.src = p.img;
+            img.style.filter = 'none'; // reset color on each open
             document.getElementById('modal-name').innerText = p.name;
             document.getElementById('modal-desc').innerText = p.description;
             document.getElementById('modal-badge').innerText = p.category;
@@ -433,12 +280,21 @@
             document.body.style.overflow = 'auto';
         }
 
-        function openIdeaModal() { document.getElementById('idea-modal').classList.add('active'); }
-        function closeIdeaModal() { document.getElementById('idea-modal').classList.remove('active'); }
+        function selectColor(colorName) {
+            const colorMap = {
+                'Pink':       'hue-rotate(300deg) brightness(1.2)',
+                'Purple':     'hue-rotate(250deg) saturate(1.5)',
+                'Black':      'grayscale(1) brightness(0.5)',
+                'Red':        'hue-rotate(0deg) saturate(2)',
+                'Dark Green': 'hue-rotate(120deg) brightness(0.7)'
+            };
+            document.getElementById('modal-img').style.filter = colorMap[colorName] || 'none';
+            showToast(`Configuration Set: ${colorName}`);
+        }
 
-        function selectColor(color) { showToast(`Configuration Set: ${color}`); }
-
-        function toggleCart() { document.getElementById('cart-drawer').classList.toggle('translate-x-full'); }
+        function toggleCart() {
+            document.getElementById('cart-drawer').classList.toggle('translate-x-full');
+        }
 
         function addToCart(id) {
             const product = products.find(p => p.id === id);
@@ -454,7 +310,18 @@
             if (cart.length === 0) {
                 itemsContainer.innerHTML = `<div class="h-full flex flex-col items-center justify-center space-y-4"><i class="fa-solid fa-box-open text-4xl text-gray-100"></i><p class="text-[10px] font-black uppercase tracking-[0.4em] text-gray-300">Bag Empty</p></div>`;
             } else {
-                itemsContainer.innerHTML = cart.map((p, index) => `<div class="flex items-center space-x-8 animate-fadeIn"><div class="relative h-24 w-24 flex-shrink-0"><img src="${p.img}" class="w-full h-full object-cover rounded-3xl border"></div><div class="flex-grow"><h5 class="font-black text-xs uppercase tracking-widest">${p.name}</h5><p class="text-xs text-purple-600 font-black mt-2">$${p.price.toFixed(2)}</p></div><button onclick="removeFromCart(${index})" class="text-gray-200 hover:text-red-500 transition-colors px-2"><i class="fa-solid fa-trash-can"></i></button></div>`).join('');
+                itemsContainer.innerHTML = cart.map((p, index) => `
+                    <div class="flex items-center space-x-8 animate-fadeIn">
+                        <div class="relative h-24 w-24 flex-shrink-0">
+                            <img src="${p.img}" class="w-full h-full object-cover rounded-3xl border">
+                        </div>
+                        <div class="flex-grow">
+                            <h5 class="font-black text-xs uppercase tracking-widest">${p.name}</h5>
+                            <p class="text-xs text-purple-600 font-black mt-2">$${p.price.toFixed(2)}</p>
+                        </div>
+                        <button onclick="removeFromCart(${index})" class="text-gray-200 hover:text-red-500 transition-colors px-2"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                `).join('');
             }
             document.getElementById('cart-total').innerText = `$${cart.reduce((sum, p) => sum + p.price, 0).toFixed(2)}`;
         }
@@ -470,16 +337,24 @@
         }
 
         function simulateCheckout() {
-            if(cart.length === 0) return;
+            if (cart.length === 0) return;
             const btn = document.getElementById('checkout-btn');
             btn.innerHTML = '<i class="fa-solid fa-shield-halved fa-spin"></i> SECURING GATEWAY...';
             setTimeout(() => {
                 btn.innerHTML = 'DEPLOYMENT SUCCESSFUL';
                 btn.classList.replace('bg-black', 'bg-green-600');
-                setTimeout(() => { cart = []; updateCart(); toggleCart(); btn.innerHTML = 'Secure Checkout'; btn.classList.replace('bg-green-600', 'bg-black'); showToast("Order Confirmed"); }, 2000);
+                setTimeout(() => {
+                    cart = [];
+                    updateCart();
+                    toggleCart();
+                    btn.innerHTML = 'Secure Checkout';
+                    btn.classList.replace('bg-green-600', 'bg-black');
+                    showToast("Order Confirmed");
+                }, 2000);
             }, 2000);
         }
 
+        // Render full collection immediately on load — no filter applied
         window.onload = () => { renderProducts(); updateCart(); };
     </script>
 </body>
