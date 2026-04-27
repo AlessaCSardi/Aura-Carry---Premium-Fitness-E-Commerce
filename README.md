@@ -1,2 +1,3 @@
-SmartBag
-A high-performance modular carry system designed to consolidate gym, tech, and travel essentials into a single organizational asset using sustainable vegan materials. https://alessandra-claro.github.io/SmartBag/
+## SmartBag
+### A high-performance modular carry system designed to consolidate gym, tech, and travel essentials into a single organizational asset using sustainable vegan materials.
+### Link: https://alessandra-claro.github.io/SmartBag/
