@@ -1,2 +1,1 @@
-# Aura-Carry---Premium-Fitness-E-Commerce
-Engineering the Perfect Carry. The intersection of luxury aesthetics and high-performance utility. Built for the Architect who trains as hard as they build.
+A high-performance modular carry system designed to consolidate gym, tech, and travel essentials into a single organizational asset using sustainable vegan materials. https://alessandra-claro.github.io/SmartBag/
